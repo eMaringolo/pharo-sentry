@@ -23,9 +23,10 @@ Class {
 		'fingerprint',
 		'message',
 		'exception',
-		'contexts'
+		'contexts',
+		'transaction'
 	],
-	#category : 'Sentry-Core-Model'
+	#category : #'Sentry-Core-Model'
 }
 
 { #category : #'accessing - special' }
@@ -257,6 +258,18 @@ SentryEvent >> timestamp [
 { #category : #accessing }
 SentryEvent >> timestamp: aDateTime [
 	timestamp := aDateTime
+]
+
+{ #category : #accessing }
+SentryEvent >> transaction [
+
+	^ transaction
+]
+
+{ #category : #accessing }
+SentryEvent >> transaction: anObject [
+
+	transaction := anObject
 ]
 
 { #category : #formatting }
