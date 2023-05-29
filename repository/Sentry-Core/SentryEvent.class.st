@@ -23,9 +23,10 @@ Class {
 		'fingerprint',
 		'message',
 		'exception',
-		'contexts'
+		'contexts',
+		'transaction'
 	],
-	#category : 'Sentry-Core-Model'
+	#category : #'Sentry-Core-Model'
 }
 
 { #category : #'accessing - special' }
@@ -36,7 +37,7 @@ SentryEvent >> asDictionary [
 			(SentryConverter new
 				asDictionary: self
 				keys: #(logger platform sdk)
-				optional: #(level contexts culprit serverName release tags environment modules extra fingerprint)).
+				optional: #(level contexts culprit serverName release tags environment modules extra fingerprint transaction)).
 	dict
 		at: 'tags'
 		ifPresent: [ :t | 
@@ -257,6 +258,20 @@ SentryEvent >> timestamp [
 { #category : #accessing }
 SentryEvent >> timestamp: aDateTime [
 	timestamp := aDateTime
+]
+
+{ #category : #accessing }
+SentryEvent >> transaction [
+
+	"The name of the transaction which caused this exception.
+	For example, in a web app, this might be the route name."
+
+	^ transaction
+]
+
+{ #category : #accessing }
+SentryEvent >> transaction: aString [
+	transaction := aString
 ]
 
 { #category : #formatting }
