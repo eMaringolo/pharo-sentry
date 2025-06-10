@@ -16,13 +16,21 @@ Class {
 		'transport',
 		'lastEvent'
 	],
-	#category : 'Sentry-Core-Model'
+	#category : #'Sentry-Core-Model'
 }
 
 { #category : #'instance creation' }
 SentryClient class >> dsn: aDsn [
 	^ self new
 		dsn: aDsn;
+		yourself
+]
+
+{ #category : #'instance creation' }
+SentryClient class >> dsn: aDsn transport: aSentryTransport [
+	^ self new
+		dsn: aDsn;
+		transport: aSentryTransport;
 		yourself
 ]
 

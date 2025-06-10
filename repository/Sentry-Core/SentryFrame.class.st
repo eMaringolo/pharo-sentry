@@ -14,7 +14,7 @@ Class {
 		'inApp',
 		'vars'
 	],
-	#category : 'Sentry-Core-Model'
+	#category : #'Sentry-Core-Model'
 }
 
 { #category : #accessing }
@@ -102,7 +102,7 @@ SentryFrame >> filetreeFileNameFor: aMethod [
 				<< '.package';
 				<< '/'.
 			stream
-				<< methodClass theNonMetaClass name;
+				<< methodClass instanceSide name;
 				<< '.class';
 				<< '/'.
 			methodClass isMeta
