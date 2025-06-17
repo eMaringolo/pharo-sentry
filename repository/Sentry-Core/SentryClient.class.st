@@ -26,6 +26,14 @@ SentryClient class >> dsn: aDsn [
 		yourself
 ]
 
+{ #category : #'instance creation' }
+SentryClient class >> dsn: aDsn transport: aSentryTransport [
+	^ self new
+		dsn: aDsn;
+		transport: aSentryTransport;
+		yourself
+]
+
 { #category : #accessing }
 SentryClient >> appPackages [
 	^ appPackages
